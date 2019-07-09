@@ -1,0 +1,12 @@
+#connection String Examples below Passwords and site locations Obscured
+
+#snow flake:
+conn = create_engine('snowflake://periscope_read:lkajsdf@evolve/alkdfj_bi/noschema?warehouse=;alskdf_analytics_wh')
+
+#snow flake query:
+q = """
+select cpbd.*
+ , cpfo.comps_median_future_evolve_occ as occ_100_comp
+from periscope_views.churn_pred_base as cpbd
+left join periscope_views.churn_pred_market_occ as cpfo on cpbd.listing_id = cpfo.listingid and cpbd.transactiondate = cpfo.transactiondate
+"""
